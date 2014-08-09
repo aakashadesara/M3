@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>M3 - Myo Music Mixer</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="myojs-0.8.6.js"></script>
+    <script src="leap.js"></script>
+    <script src="script.js"></script>
+   
+</head>
+<body>
+
+    <div id="stats">
+        <h3> Statistics Board </h3>
+        <button id="vibrator" onclick="hub.myo.vibrate(hub.myo.VIBRATION_LONG);">Vibrate</button>
+        <div id="out"></div>
+        <hr>
+        <div id="gesture">Gesture: </div>
+        <hr>
+        <div id="leap-x">Leap X: </div>
+    </div>
+
+    <div id="leftTable"> </div>
+    <div id="rightTable"> </div>
+    <div id="songBoardLeft"> </div>
+    <div id="songList"> </div>
+    <div id="songBoardRight"></div>
+</body>
+</html>
