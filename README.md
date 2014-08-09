@@ -5,7 +5,7 @@ Myo Music Mixer
 
 Made at HeroHacks 2014 at Wearable World Headquarters
 Made By:
-- Ashank Patil: Designer (This was his first hackathon!)
+- Ashank Patil: Designer (This was his first hackathon!) (This hackathon was awesome! -Ashank)
 - Aakash Adesara: Programmer
 Time: 16 hours
 
