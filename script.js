@@ -38,6 +38,27 @@ var nameArray = [
     "Titanium"
 ];
 
+var infoArray = [
+    ["art/1.jpg", "Somewhere Over The Rainbow", "Israel Kamakawiw'Ole"],
+    ["art/2.jpg", "Slay It", "Cryptex"],
+    ["art/3.jpg", "Bangarang", "Skirllex"],
+    ["art/4.jpg", "Bang!", "Carnage"],
+    ["art/5.jpg", "Can't Tell Me Nothing", "Kanye West (the Kayne Best (in the Kanye West (UMPH)))"],
+    ["art/6.jpg", "Come With Me Now", "KONGOS"],
+    ["art/7.jpg", "Dragon Rider", "Archangel"],
+    ["art/8.jpg", "Elements", "Lindsey Stirling"], 
+    ["art/9.jpg", "Happy", "Pharrell Williams"],
+    ["art/10.jpg", "Incredible", "Carnage"],
+    ["art/11.jpg", "One Tribe", "Black Eyed Peas"],
+    ["art/12.jpg", "Rap God", "Eminem"],
+    ["art/13.jpg", "Pentonix", "Pentatonix"],
+    ["art/14.jpg", "Turn Down For What", "DJ Snake and L'il Jon"],
+    ["art/15.jpg", "21 Guns", "Green Day"],
+    ["art/16.jpg", "Titanium", "David Gruella"]
+    
+];
+
+
 var toggleLeftVolume = false;
 var toggleRightVolume = false;
 var toggleLeftButtonVolume;
@@ -99,6 +120,10 @@ var hub = new Myo.Hub();
         toggleLeftButtonVolume = document.getElementById("volumeToggleLeft");
         toggleRightButtonVolume = document.getElementById("volumeToggleRight");
 
+        var imgHolder = document.getElementById("albumArtImg");
+        var textInfoHolder = document.getElementById("nameHolderInfoBox");
+        var artistInfoBox = document.getElementById("artistInfoBox");
+
         var rightTable = document.getElementById("rightTable");
         var leftTable = document.getElementById("leftTable");
 
@@ -159,6 +184,13 @@ hub.on('pose', function(pose) {
 
                 buttonSelector = "song" + (i + 1);
 
+             if(infoArray[i][0] != null){
+                    imgHolder.src = infoArray[i][0];
+                    textInfoHolder.innerHTML = infoArray[i][1];
+                    artistInfoBox.innerHTML = infoArray[i][2];
+                }
+                
+
                 unClearAllButtons();
                 document.getElementById(buttonSelector).style.backgroundColor = "white";
                 document.getElementById(buttonSelector).style.color = "black";
@@ -177,6 +209,13 @@ hub.on('pose', function(pose) {
                         i = 0;
                     }
 
+                    if(infoArray[i][0] != null){
+                        imgHolder.src = infoArray[i][0];
+                        textInfoHolder.innerHTML = infoArray[i][1];
+                        artistInfoBox.innerHTML = infoArray[i][2];
+
+                    }
+                    
                     buttonSelector = "song" + (i + 1);
 
                     unClearAllButtons();
@@ -200,7 +239,6 @@ hub.on('pose', function(pose) {
                         document.getElementById("turnTableImgLeft").src = "img/stillLeft.png";
                     } else {
                         console.log("Left music started");
-                        audio1.pause();
                         turnMusicLeft(true, audioNotSetYet);
                         turnTableLeftText.innerHTML = nameOfAudioNotSetYet;
                         lplaying = !lplaying;
@@ -294,8 +332,6 @@ function djLooper(){
         rightTable.style.backgroundColor="white";
     }
 }
-
-turnMusicLeft(true, audio1);
 
 
 function turnMusicLeft(bool, audio){

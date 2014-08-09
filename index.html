@@ -7,6 +7,7 @@
     <script src="jquery.js"></script>
     <script src="myojs-0.8.6.js"></script>
     <script src="leap.js"></script>
+
     <script src="script.js"></script>
    
 </head>
@@ -39,7 +40,7 @@
         <button class="volumeToggle" id="volumeToggleRight">Volume Change</button>
     </div>
     <div id="songBoardLeft"> 
-        <canvas id="songcanvas" width="640" height="320px"></canvas>
+        <iframe src="rotundus.html" id="songcanvas" width="100%" height="100%"></iframe>
     </div>
     <div id="songList"> 
 
@@ -61,6 +62,11 @@
         <button class="songbuttons" id="song16">Titanium</button>
 
     </div>
-    <div id="songBoardRight"></div>
+    <div id="songBoardRight">
+        <img id="albumArtImg" src="blank.png"></img>
+        <div id="nameHolderInfoBox"> Nothing </div>
+        <div id="artistInfoBox"> Nobody </div>
+
+    </div>
 </body>
 </html>

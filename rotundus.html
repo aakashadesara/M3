@@ -1,0 +1,131 @@
+<html>
+<head>
+  <title> Rotundus </title>
+  <script type="text/javascript" src="leap.js"></script>
+  <script src="script.js"></script>
+  <script src="three.min.js"></script>
+
+  <style>
+
+    * {
+      margin: 0px;
+      padding: 0px;
+      font-family: Century Gothic;
+    }
+
+    #floater {
+      float: left;
+      background-color: black;
+      border: 2px solid white;
+      color: white;
+      padding: 20px;
+      width: 350px;
+      position: absolute;
+      margin: 5px;
+    }
+
+    #turnTableRightText.
+    #turnTableLeftText {
+      font-size: 2em;
+    }
+
+    #gameDiv {
+      width: 400px;
+      height: 500px;
+      margin: 0;
+      background-color: black;
+    }
+
+  </style>
+
+
+</head>
+<body>
+ 
+
+  <script type="text/javascript">
+
+    var musicOrLeap = true;
+
+
+    // Ball stuff
+    var radius = 5;
+    
+    var xposDiv = document.getElementById("xposDiv");
+    var yposDiv = document.getElementById("yposDiv");
+    var zposDiv = document.getElementById("zposDiv");
+    var xposRot = 0.001;
+    var yposRot = 0.001;
+    var zpos = 0.001;
+
+    if(musicOrLeap){
+    
+     
+    }
+
+    /* Three JS Stuff */
+    var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+
+      var renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      var geometry = new THREE.SphereGeometry(2,20,20);
+      var material = new THREE.MeshBasicMaterial({color: 0x33CC33, wireframe: true, vertexColors: 0x01AD12, wireframeLinewidth: 4, wireFrameColor: 'red'});
+      var cube = new THREE.Mesh(geometry, material);
+      scene.add(cube);
+
+      var geometry3 = new THREE.SphereGeometry(2.5,20,20);
+      var material3 = new THREE.MeshBasicMaterial({color: 0xFF9900, wireframe: true, vertexColors: 0x01AD12, wireframeLinewidth: 3, wireFrameColor: 'red'});
+      var cube2 = new THREE.Mesh(geometry3, material3);
+      scene.add(cube2);
+
+      var geometry2 = new THREE.SphereGeometry(1.8,30,30);
+      var material2 = new THREE.MeshBasicMaterial({color: 0x800000, wireframe: true, vertexColors: 0x01AD12, wireframeLinewidth: 10, wireFrameColor: 'green'});
+      var sphereInside = new THREE.Mesh(geometry2, material2);
+      scene.add(sphereInside);
+
+      var geometry3 = new THREE.SphereGeometry(3,20,20);
+      var material3 = new THREE.MeshBasicMaterial({color: 0x0099FF, wireframe: true, vertexColors: 0x01AD12, wireframeLinewidth: 2, wireFrameColor: 'red'});
+      var sphereOutside = new THREE.Mesh(geometry3, material3);
+      scene.add(sphereOutside);
+
+      var geometry4 = new THREE.SphereGeometry(4,20,20);
+      var material4 = new THREE.MeshBasicMaterial({color: 0xAA3618, wireframe: true, vertexColors: 0x01AD12, wireframeLinewidth: 1, wireFrameColor: 'red'});
+      var sphereAgain = new THREE.Mesh(geometry4, material4);
+      scene.add(sphereAgain);
+
+      var geometry5 = new THREE.SphereGeometry(5,20,20);
+      var material5 = new THREE.MeshBasicMaterial({color: 0xAA00AA, wireframe: true, vertexColors: 0x01AD12, wireframeLinewidth: 1, wireFrameColor: 'red'});
+      var sphereAgain5 = new THREE.Mesh(geometry5, material5);
+      scene.add(sphereAgain5);
+
+
+      camera.position.z = 5;
+
+      var render = function () {
+        requestAnimationFrame(render);
+
+        cube.rotation.y += 0.6;
+
+        cube2.rotation.x += 0.6;
+
+        sphereOutside.rotation.z += zpos;
+
+        sphereAgain.rotation.x += xposRot/100;
+
+        sphereAgain5.rotation.y += yposRot/100;
+
+        renderer.render(scene, camera);
+      };
+
+      render();
+    /* ------------ */
+
+   
+
+  </script>
+
+</body>
+</html>
