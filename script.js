@@ -318,7 +318,6 @@ function djLooper(){
     }
 
     if(leapx >= 0){
-        console.log("hi");
         rightTable.style.backgroundColor="#00FFFF";
         leftTable.style.backgroundColor="white";
         leftOrRightTable = false;
