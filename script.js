@@ -360,4 +360,166 @@ function unClearAllButtons(){
         document.getElementById("song" + i).style.color = "white";
     }
 }
+
+// Entire application with keyboard clicks
+    $(document).keydown(function(e) {
+    switch(e.which) {
+        case 37: // left
+            gesture.innerHTML = ("Gesture: Wave in");
+            if(currentPose != currentPoseSentinal)
+                currentPoseSentinal = currentPose.POSE_WAVE_IN;
+
+            i--;
+            if(i < 0){
+                i = 15;
+            }
+
+            buttonSelector = "song" + (i + 1);
+
+         if(infoArray[i][0] != null){
+                imgHolder.src = infoArray[i][0];
+                textInfoHolder.innerHTML = infoArray[i][1];
+                artistInfoBox.innerHTML = infoArray[i][2];
+            }
+            
+
+            unClearAllButtons();
+            document.getElementById(buttonSelector).style.backgroundColor = "white";
+            document.getElementById(buttonSelector).style.color = "black";
+
+            audioNotSetYet = songArray[i];
+            nameOfAudioNotSetYet = nameArray[i];
+
+            break;
+
+        case 39: // up
+            if(currentPose != currentPoseSentinal)
+                currentPoseSentinal = currentPose.POSE_WAVE_OUT;
+
+                i++;
+                if(i > 15){
+                    i = 0;
+                }
+
+                if(infoArray[i][0] != null){
+                    imgHolder.src = infoArray[i][0];
+                    textInfoHolder.innerHTML = infoArray[i][1];
+                    artistInfoBox.innerHTML = infoArray[i][2];
+
+                }
+                
+                buttonSelector = "song" + (i + 1);
+
+                unClearAllButtons();
+                document.getElementById(buttonSelector).style.backgroundColor = "white";
+                document.getElementById(buttonSelector).style.color = "black";
+
+                audioNotSetYet = songArray[i];
+                nameOfAudioNotSetYet = nameArray[i];
+
+                break;
+
+        case 38: // up
+        gesture.innerHTML = ("Gesture: Fingers spread");
+                if(currentPose != currentPoseSentinal)
+                    currentPoseSentinal = currentPose.POSE_FINGERS_SPREAD;
+
+                if(leftOrRightTable){
+                    if(lplaying){
+                        console.log("Left music stopped");
+                        turnMusicLeft(false, "");
+                        lplaying = !lplaying;
+                        document.getElementById("turnTableImgLeft").src = "img/stillLeft.png";
+                    } else {
+                        console.log("Left music started");
+                        turnMusicLeft(true, audioNotSetYet);
+                        turnTableLeftText.innerHTML = nameOfAudioNotSetYet;
+                        lplaying = !lplaying;
+                        document.getElementById("turnTableImgLeft").src = "img/fastSpin.gif";
+                    }
+                } else if (leftOrRightTable == false ){
+                    if(rplaying){
+                        console.log("Right music stopped");
+                        turnMusicRight(false, "");
+                        rplaying = !rplaying;
+                        document.getElementById("turnTableImgRight").src = "img/stillRight.png";
+                    } else {
+                        console.log("Right music started");
+                        turnMusicRight(true, audioNotSetYet );
+                        turnTableRightText.innerHTML = nameOfAudioNotSetYet;
+                        rplaying = !rplaying;
+                        document.getElementById("turnTableImgRight").src = "img/fastSpin.gif";
+                    }
+                }
+
+                break;
+
+        case 40: // down
+                gesture.innerHTML = ("Gesture: Fist");
+                if(currentPose != currentPoseSentinal)
+                    currentPoseSentinal = currentPose.POSE_FIST;
+
+                if(leftOrRightTable){
+                    if(toggleLeftVolume == false){
+                        toggleLeftVolume = true;
+                        console.log("TLeft: true");
+                        toggleLeftButtonVolume.style.backgroundColor = "#00DDEE";
+                    } else if(toggleLeftVolume == true){
+                        toggleLeftVolume = false;
+                        console.log("TLeft: false");
+                        toggleLeftButtonVolume.style.backgroundColor = "white";
+                    }
+                } else {
+                    if(toggleRightVolume == false){
+                        toggleRightVolume = true;
+                        console.log("TRight: true");
+                        toggleRightButtonVolume.style.backgroundColor = "#00DDEE";
+                    } else if (toggleRightVolume == true){
+                        toggleRightVolume = false;
+                        console.log("TRight: false");
+                        toggleRightButtonVolume.style.backgroundColor = "white";
+                    }
+                }
+                
+                break;
+
+        case 68: // Letter D
+        console.log("hi");
+        rightTable.style.backgroundColor="#00FFFF";
+        leftTable.style.backgroundColor="white";
+        leftOrRightTable = false;
+        break;
+
+        case 65: // Letter A
+        console.log("hi");
+        rightTable.style.backgroundColor="white";
+        leftTable.style.backgroundColor="#00FFFF";
+        leftOrRightTable = true;
+        break;
+
+        case 87: // Letter W
+        if(toggleRightVolume == true && audio2 != null && audio2.volume >= 1){
+        audio2.volume += 0.1;
+        }
+        if(toggleLeftVolume == true && audio1 != null && audio1.volume >= 1){
+            audio1.volume += 0.1;
+        }
+   
+        break;
+
+        case 83: // Letter S
+        console.log("lowered");
+        if(toggleRightVolume == true && audio2 != null && audio2.volume <= 0){
+        audio2.volume -= 0.1;
+        }
+        if(toggleLeftVolume == true && audio1 != null && audio1.volume <= 0){
+            audio1.volume -= 0.1;
+        }
+        break;
+
+
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+    });
 });
