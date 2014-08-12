@@ -4,7 +4,7 @@ var songArray = [
     "sound/track1.mp3",
     "sound/track2.mp3",
     "sound/track3.mp3",
-    "sound/track4.mp3",
+    "sound/track4-.mp3",
     "sound/track5.mp3",
     "sound/track6.mp3",
     "sound/track7.mp3",
