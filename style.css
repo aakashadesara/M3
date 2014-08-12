@@ -55,6 +55,10 @@ div#mp3_player1 > canvas{ width:300px; height:100px; background:#002D3C; float:l
 	float: left;
 }
 
+#stats img {
+	width: 100%;
+}
+
 #vibrator {
 	padding: 10px;
 	border-radius: 5px;
