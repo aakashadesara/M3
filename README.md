@@ -1,8 +1,9 @@
 M3
-==   a
 
 Myo Music Mixer
 Time: 16 hours
+
+Was "Top Post" on ChallengePost for 7 days in the month of August. 
 
 Made at HeroHacks 2014 at Wearable World Headquarters
 Made By:
