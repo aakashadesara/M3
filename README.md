@@ -11,3 +11,5 @@ Made By:
 - Ashank Patil: Designer (#firstHackathon #didntEvenHavePhotoshop #moralSupport #usefulness #myoManagementSystem)
 
 Use the Leap motion controller (WASD) to control which turn table and volume. Use Myo to control song choosing and stopping/starting songs (arrow keys).
+
+#solid
