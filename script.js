@@ -58,7 +58,6 @@ var infoArray = [
     
 ];
 
-
 var toggleLeftVolume = false;
 var toggleRightVolume = false;
 var toggleLeftButtonVolume;
