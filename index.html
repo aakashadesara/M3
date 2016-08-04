@@ -1,0 +1,76 @@
+<html>
+<head>
+    <title>M3 - Myo Music Mixer</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="jquery.js"></script>
+    <script src="myojs-0.8.6.js"></script>
+    <script src="leap.js"></script>
+
+    <script src="script.js"></script>
+   
+</head>
+<body>
+
+    <div id="splashScreen">
+        <img id="splashIcon" src="icon.png"></img>
+    </div>
+
+  
+
+    <div id="stats">
+                <img  src="icon.png"></img>
+
+        <h3> Statistics Board </h3>
+        <button id="vibrator" onclick="hub.myo.vibrate(hub.myo.VIBRATION_LONG);">Vibrate</button>
+        <div id="out"></div>
+        <hr>
+        <div id="gesture">Gesture: </div>
+        <hr>
+        <div id="leap-x">Leap X: </div>
+        <hr>
+        <div id="leap-y">Leap Y: </div>
+    </div>
+
+    <div id="leftTable"> 
+        <img class="turnTableImg" id="turnTableImgLeft" src="img/stillLeft.png"></img>
+        <div id="turnTableLeftText"> None </div>
+        <button class="volumeToggle" id="volumeToggleLeft">Volume Change</button>
+    </div>
+    <div id="rightTable"> 
+        <img class="turnTableImg" id="turnTableImgRight" src="img/stillRight.png"></img>
+        <div id="turnTableRightText"> None </div>
+        <button class="volumeToggle" id="volumeToggleRight">Volume Change</button>
+    </div>
+    <div id="songBoardLeft"> 
+        <iframe src="rotundus.html" id="songcanvas" width="100%" height="100%"></iframe>
+    </div>
+    <div id="songList"> 
+
+        <button class="songbuttons" id="song1">Somewhere Over The Rainbow</button>
+        <button class="songbuttons" id="song2">Slay It</button>
+        <button class="songbuttons" id="song3">Bangarang</button>
+        <button class="songbuttons" id="song4">Bang!</button>
+        <button class="songbuttons" id="song5">Can't Tell Me Nothing</button>
+        <button class="songbuttons" id="song6">Come with me now</button>
+        <button class="songbuttons" id="song7">Dragon Rider</button>
+        <button class="songbuttons" id="song8">Elements</button>
+        <button class="songbuttons" id="song9">Happy</button>
+        <button class="songbuttons" id="song10">Incredible</button>
+        <button class="songbuttons" id="song11">One Tribe</button>
+        <button class="songbuttons" id="song12">Rap God</button>
+        <button class="songbuttons" id="song13">Pentonix</button>
+        <button class="songbuttons" id="song14">Turn Down for what</button>
+        <button class="songbuttons" id="song15">21 Guns</button>
+        <button class="songbuttons" id="song16">Titanium</button>
+
+    </div>
+    <div id="songBoardRight">
+        <img id="albumArtImg" src="blank.png"></img>
+        <div id="nameHolderInfoBox"> Nothing </div>
+        <div id="artistInfoBox"> Nobody </div>
+
+    </div>
+</body>
+</html>
